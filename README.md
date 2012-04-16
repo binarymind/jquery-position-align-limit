@@ -50,13 +50,13 @@ When setPosition is called the element on which it is applied trigger an event "
 Exemples : 
 
 ```html
-//you want to align the &lt;div id="myDiv"&gt;&lt;/div&gt; fully to the window write
+//you want to align the <div id="myDiv"></div> fully to the window write
 $("#myDiv").align(window);
 
-//you want to align the right of &lt;div id="myDiv"&gt;&lt;/div&gt; to the left of &lt;span id="mySpan"&gt;&lt;/span&gt; write
+//you want to align the right of <div id="myDiv"></div> to the left of <span id="mySpan"></span> write
 $("#myDiv").align({right:{at:1, selector:'#mySpan'}}); 
 
-//you want to align the left of &lt;div id="myDiv"&gt;&lt;/div&gt; to the right of &lt;span id="mySpan"&gt;&lt;/span&gt; + an offset of 30px, write
+//you want to align the left of <div id="myDiv"></div> to the right of <span id="mySpan"></span> + an offset of 30px, write
 $("#myDiv").align({left:{my:0.5,at:0.5, selector:'#mySpan'}, top:{my:0.5,at:0.5, selector:'#mySpan'}}); 
 ```
 
@@ -89,10 +89,10 @@ When a limit is activated, the element on which it is applied trigger an event "
 Exemples : 
 
 ```html
-//If you want that the element &lt;div id="myDiv"&gt;&lt;/div&gt; doesn't go outside the visible screen : 
+//If you want that the element <div id="myDiv"></div> doesn't go outside the visible screen : 
 $("#myDiv").limit(window);
 
-//you want to limit the bottom of &lt;div id="myDiv"&gt;&lt;/div&gt; to the top of &lt;div id="footer"&gt;&lt;/div&gt; and its top to to the bottom of &lt;div id="header"&gt;&lt;/div&gt;, you would write
+//you want to limit the bottom of <div id="myDiv"></div> to the top of <div id="footer"></div> and its top to to the bottom of <div id="header"></div>, you would write
 $("#myDiv").limit({bottom:{at:1, selector:'#footer'}, top:{at:1, selector:'#header'}});
 ```
 
