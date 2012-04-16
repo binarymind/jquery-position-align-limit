@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html ><head>
+<title>align-limit example </title>
+</head>
+<body style="background:#292929;">
+<div id="blue" class="absolute" style="background:blue;width:240px;height:40px;"></div>
+<div id="orange" class="absolute" style="width:100px; height:800px; background:orange;right:0;left:auto"></div>
+<div id="red" class="" style="background:red; width:100px;height:100px;"></div>
+<div id="yellow" class="gnogno" style="background:yellow; width:100px;height:100px;"></div>
+<div id="pink" class="absolute coin" style="z-index:900000;width:100px;height:50px;background:pink; left:230px;top:140px">drag me</div>
+<script type="text/javascript" src="http://code.jquery.com/jquery.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+<script type="text/javascript" src="jquery.hoverintent.js" ></script>
+<script type="text/javascript" src="jquery.resize.js" ></script>
+<script type="text/javascript" src="jquery.position-align-limit.js" ></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	$("#pink").draggable({ refreshPositions: true });
+	$("#pink").bind( "drag", function(event, ui) {if(!$("#pink").is(":visible"))console.log("invisible");$(window).resize();});
+	
+	//You wouldn't even dreamed of such an easy Layout Manager :) 
+	$("#blue")
+		.align({left:{my:0.5,at:1,selector:'#pink', offset:-20}, bottom:{at:1,selector:"#pink", offset:10}})
+		.limit({top:{selector:window, offset:30}, left:{at:1,selector:"#orange", offset:30}, bottom:{at:1, selector:".gnogno", offset:30}, right:window});
+	
+	$("#red")
+		.align({top:{at:1, selector:'#blue'}, left:{at:1, selector:"#blue"}})
+		.limit({right:window, bottom: window});	
+	
+	$("#yellow")
+		.align({top:{my:0.2,at:1, selector:'#red'}, left:{at:1, selector:"#red"}})
+		.limit({bottom: window, right:window});
+	
+	$("#orange")
+		.align({top:window, bottom:window, left:window, right:{at:2.5, selector:'#pink'}})
+		.limit({right:{at:1, selector:'#blue'}});
+
+	$(window).resize();
+}); 
+</script>
+
+</body>
+</html>
